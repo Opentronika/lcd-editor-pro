@@ -24,7 +24,7 @@
     }
     </component>
   </teleport>
-  <div class="menu top">
+  <header class="menu top">
       <div class="row no-wrap middle-align">
         <div class="col middle-align">
           <img src="./assets/opentronika.png" class="circle small-margin">
@@ -49,40 +49,8 @@
       
     <div class="modal medium no-scroll top"></div>
     <div class="modal top"></div>
-  </div>
-  <div id="info" v-if="this.showinfo" class="modal right large active">
-    <div class="row no-wrap">
-      <div class="col middle-align">
-      </div>
-      <div class="col center-align">
-      </div>
-      <div class="col right-align ">
-          <button class="wave light none white-text" @click="showInfo()">
-          <i class="blue-text">close</i>
-        </button>
-      </div>
-    </div>
-    <article class="flat center-align large">
-     <img src="./assets/opentronika.png" class="small-margin AboutImage">
-     <h4 class="center-align">Opentronika</h4>
-     <h5 class="center-align AboutItem">The most advanced lcd module editor that exist in the web</h5>
-     <h6 class="center-align">
-       Made by lutgaru
-     </h6>
-     <a href="https://github.com/lutgaru/lcd-editor-pro" target="_blank">
-       <img class="tiny" src="./assets/github.svg" alt="">
-       <span class="AboutItem">Github</span>
-     </a>
-     <br>
-     <br>
-    <a href="https://www.linkedin.com/in/adrian-neftali-sanchez-b027b9b7/" target="_blank">
-      <img class="tiny" src="./assets/linkedin.svg" alt="">
-      <span class="AboutItem">Linkedin</span>
-    </a>
-
-      
-    </article>
-  </div>
+  </header>
+  <AboutUs id="info" v-if="this.showinfo" @showInfo="showInfo()" class="modal right large active"/>
   <div  class="MainDiv">
     <CharsTable v-if="showscreentable" @selectCharacter="selectCharacter"/>
       <LcdScreen :heightScreen=this.selected[1] 
@@ -153,8 +121,37 @@ import 'highlight.js/styles/a11y-dark.css';
 //import 'highlight.js/styles/stackoverflow-light.css';
 import getCodeString from './scripts/getcodestring.js'
 import CharsTable from './components/charstable.vue'
+import AboutUs from './components/About.vue'
+import { useHead } from '@unhead/vue'
 export default {
   name: 'App',
+  setup(){
+    useHead({
+  title: 'LCD Editor pro',
+  meta:[
+    {
+      name: 'description',
+      content: 'The most advanced lcd module editor that exist in the web. Code generator for lcd modules used in electronic projects that supports multiple characters, different screen sizes, and all characters stored by default in the most commonly used modules.',
+    },
+    {
+      name: 'keywords',
+      content: 'LCD editor, LCD generator code, arduino, esp32, tool, online, LCD screen generator',
+    },
+    {
+      name: 'author',
+      content: 'LutGaru',
+    },
+    {
+      name: 'robots',
+      content: 'index, follow',
+    },
+    {
+      name: 'viewport',
+      content:'width=device-width,initial-scale=1.0'
+    }
+  ]
+})
+  },
   data(){
         return{
             lcdkey:0,
@@ -177,6 +174,7 @@ export default {
   components: {
     CharsTable,
     LcdScreen,
+    AboutUs,
     VueHighlightJS :hljsVuePlugin.component
   },
   methods:{
