@@ -10,7 +10,7 @@ npm run build
 cd dist
 
 # if you are deploying to a custom domain
-echo 'opentronika.org' > CNAME
+echo '' > CNAME
 
 git add -A
 git commit -m 'deploy'
