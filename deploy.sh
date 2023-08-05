@@ -18,7 +18,7 @@ git commit -m 'deploy'
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
 
-git push -f git@https://github.com/lutgaru/lcd-editor-pro.git master:gh-pages
+git push -f https://github.com/lutgaru/lcd-editor-pro.git master:gh-pages
 # git subtree push --prefix dist origin gh-pages
 cd -
 
