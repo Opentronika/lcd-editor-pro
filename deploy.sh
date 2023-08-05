@@ -18,7 +18,7 @@ git commit -m 'deploy'
 cd -
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
 
-git push origin `git subtree pull --allow-unrelated-histories --prefix dist origin gh-pages`:gh-pages --force
+git push origin `git subtree pull --prefix dist origin gh-pages`:gh-pages --force
 # git subtree push --prefix dist origin gh-pages
 
 
