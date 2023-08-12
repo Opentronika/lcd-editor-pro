@@ -1,23 +1,23 @@
 <template>
-        <nav class="wrap">
+        <nav class=" flex-wrap dark:text-white">
           <div v-for="(charsd, indexcharsd, indexn) in this.defaulcharsdata"
-          :key="indexcharsd" @click="setdefaulchar(indexcharsd)" style="display: inline-block;">
+          :key="indexcharsd" @click="setdefaulchar(indexcharsd)" style="display: inline-block;" class="m-1 content-center">
             <div v-for="(charsf, indexcharsf) in Object.values(charsd)" :key="indexcharsf" style="display: flex;">
               <div 
               v-for="(charc, indexcharc) in charsf" 
               :key="indexcharc" 
-              v-bind:class="{cuadradopintados:charc,cuadrados:!charc}"></div>
+              v-bind:class="{'cuadradopintados bg-black dark:bg-white':charc,'cuadrados bg-white dark:bg-gray-900':!charc}"></div>
             </div>
             <span style="color:var(--on-surface)">{{resolveCharpos(indexn).toString(16)}}</span>
           </div>
         </nav>
-<div class="field middle-align center-align">
-  <nav>
-  <label class="radio">
+<div class="field middle-align center-align dark:text-white ">
+  <nav class="[&>label>*]:p-2">
+  <label class="radio p-2">
       <input type="radio" v-model="defaulcharsdata" :value="this.charsA03">
       <span>ROM A03</span>
   </label>
-  <label class="radio">
+  <label class="radio p-2">
       <input type="radio" v-model="defaulcharsdata" :value="this.charsA04">
       <span>ROM A04</span>
   </label>
@@ -71,21 +71,19 @@ export default {
 <style>
 .cuadrados {
   width:2vh;
-  max-width:2px;
+  max-width:3px;
   height:8vh;
-  max-height:2px;
+  max-height:3px;
   position:relative;
-  background:var(--surface); 
   border: 1px solid var(--surface);
 }
 
 .cuadradopintados {
   width:8vh;
-  max-width:2px;
+  max-width:3px;
   height:8vh;
-  max-height:2px;
+  max-height:3px;
   position:relative;
-  background:var(--on-surface);
   border: 1px solid var(--on-surface);
 }
 
