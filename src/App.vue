@@ -25,9 +25,9 @@
     </component>
   </teleport>
   <header class="py-3 flex bg-slate-200 justify-between items-center h-14 sticky w-full top-0 z-10 dark:bg-slate-800 dark:text-white">
-        <div class=" flex">
-          <img src="./assets/opentronika.png" class="h-10 mx-3">
-          <a>
+        <div >
+          <a href="https://opentronika.org/" class="flex">
+            <img src="./assets/opentronika.png" class="h-10 mx-3">
             <div style="font-size:30px">Opentronika</div>
           </a>
         </div>
