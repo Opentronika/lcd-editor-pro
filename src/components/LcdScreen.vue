@@ -1,11 +1,11 @@
 <template>
     <div class="Screen" v-if="screenChars">
-        <div v-for="(chars, indexchars) in this.screenChars" :key="this.randomkey+indexchars" style="display: flex;">
-        <LcdChar :heightChar=8 :widthChar=5 :charDatadef="this.screenChars[indexchars][indexchar]" 
-        :draworErase="this.draworErase"
-        :widthcharstable="this.widthCharstable"
+        <div v-for="(chars, indexchars) in screenChars" :key="randomkey+indexchars" style="display: flex;">
+        <LcdChar :heightChar=8 :widthChar=5 :charDatadef="screenChars[indexchars][indexchar]" 
+        :draworErase="draworErase"
+        :widthcharstable="widthCharstable"
         v-for="(char, indexchar) in chars" 
-        :key="this.randomkey+indexchar+indexchars" class="Screenchars"
+        :key="randomkey+indexchar+indexchars" class="Screenchars"
         @changeCharacter="changeCharacter($event,indexchars,indexchar)"
         v-bind:class="{selectedchar:selectechar[indexchars][indexchar]}"
         @click="updateselect(indexchars,indexchar)"/>
