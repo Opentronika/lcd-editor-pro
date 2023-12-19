@@ -1,22 +1,19 @@
 <template>
-  <div id="app" class="dark:bg-gray-900 min-h-screen my-0">
+  <div id="app" class="dark:bg-gray-900 bg-white min-h-screen my-0">
     <div class="modal medium no-scroll top"></div>
     <div class="modal top"></div>
     <div class="MainDiv p-4">
       <CharsTable v-if="showscreentable" @selectCharacter="selectCharacter" />
       <LcdScreen :heightScreen=selected[1] :widthScreen=selected[0] @changeCharacters="updateCode($event)"
-        :draworErase="draworErase" :widthCharstable="showscreentable" :key="lcdkey"
-        :defaultchartosel="selectchar" />
+        :draworErase="draworErase" :widthCharstable="showscreentable" :key="lcdkey" :defaultchartosel="selectchar" />
     </div>
     <div
       class="Menu medium-margin [&>*]:px-2 [&>*]:m-2 [&>button>i]:m-1 dark:[&>button]:text-white [&>button]:border-2 [&>button]:rounded-lg">
-      <button class="" @click="toggleEdit()" :disabled="draworErase"
-        :class="{ ' border-teal-700': draworErase }">
+      <button class="" @click="toggleEdit()" :disabled="draworErase" :class="{ ' border-teal-700': draworErase }">
         <i class="pi pi-pencil"></i>
         <span>Draw</span>
       </button>
-      <button class="" @click="toggleEdit()" :disabled="!draworErase"
-        :class="{ ' border-teal-700': !draworErase }">
+      <button class="" @click="toggleEdit()" :disabled="!draworErase" :class="{ ' border-teal-700': !draworErase }">
         <i class="pi pi-eraser"></i>
         <span>Eraser</span>
       </button>

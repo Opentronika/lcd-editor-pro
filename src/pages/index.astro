@@ -1,36 +1,57 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-import logo from "../assets/opentronika.png"
-import 'primeicons/primeicons.css'
-import HelloWorld from '../components/HelloWorld.vue';
-import MainApp from '../components/MainApp.vue';
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import logo from "../assets/opentronika.png";
+import "primeicons/primeicons.css";
+import HelloWorld from "../components/HelloWorld.vue";
+import MainApp from "../components/MainApp.vue";
 ---
 
 <Layout title="LCD editor pro.">
-	<header class="py-3 flex bg-slate-200 justify-between items-center h-14 sticky w-full top-0 z-10 dark:bg-slate-800 dark:text-white">
-        <div >
-          <a href="https://opentronika.org/" class="flex">
-            <Image src={logo} alt='logo' class="h-10 w-10 mx-3"/>
-            <div style="font-size:30px">Opentronika</div>
-          </a>
-        </div>
-        <div class=" flex items-center">
-          <a> 
-            <div style="font-size:20px">LCD Editor Pro</div>
-          </a>
-        </div>
-        <div class=" flex">
-          <button class=" m-2" @click="updateTheme()">
-            <i class="pi pi-sun dark:pi-moon"></i>
-          </button>
-          <button class=" m-2" @click="showInfo()">
-            <i class="pi pi-info-circle"></i>
-          </button>
-        </div>
-  </header>
+	<header
+		class="py-3 flex bg-slate-200 justify-between items-center h-14 sticky w-full top-0 z-10 dark:bg-slate-800 dark:text-white"
+	>
+		<div>
+			<a href="https://opentronika.org/" class="flex">
+				<Image src={logo} alt="logo" class="h-10 w-10 mx-3" />
+				<div style="font-size:30px">Opentronika</div>
+			</a>
+		</div>
+		<div class="flex items-center">
+			<a>
+				<div style="font-size:20px">LCD Editor Pro</div>
+			</a>
+		</div>
+		<div class="flex">
+			<button class="m-2" id="updateTheme">
+				<i class="pi pi-sun dark:pi-moon"></i>
+			</button>
+			<button class="m-2" @click="showInfo()">
+				<i class="pi pi-info-circle"></i>
+			</button>
+		</div>
+	</header>
 	<main>
-		<MainApp client:load/>
+		<MainApp client:load />
 	</main>
 </Layout>
 
+<script is:inline>
+	const handleUpdateTheme = () => {
+		if (
+			localStorage.theme === "dark" ||
+			(!("theme" in localStorage) &&
+				window.matchMedia("(prefers-color-scheme: dark)").matches)
+		) {
+			document.documentElement.classList.remove("dark");
+			localStorage.theme = "light";
+		} else {
+			document.documentElement.classList.add("dark");
+			localStorage.theme = "dark";
+		}
+	};
+
+	document
+		.getElementById("updateTheme")
+		.addEventListener("click", handleUpdateTheme);
+</script>
