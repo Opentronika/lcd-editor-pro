@@ -9,20 +9,20 @@ import About from "../components/About.astro";
 
 <Layout title="LCD editor pro.">
 	<header
-		class="py-3 flex bg-slate-200 justify-between items-center h-14 sticky w-full top-0 z-20 dark:bg-slate-800 dark:text-white"
+		class="py-3 flex justify-between bg-slate-200 h-14 sticky w-full top-0 z-20 dark:bg-slate-800 dark:text-white"
 	>
-		<div>
-			<a href="https://opentronika.org/" class="flex">
-				<Image src={logo} alt="logo" class="h-10 w-10 mx-3" />
-				<div style="font-size:30px">Opentronika</div>
+		<div class="w-auto z-30">
+			<a href="https://opentronika.org/" class="flex ">
+				<Image src={logo} alt="logo" class="h-10 w-auto mx-3" />
+				<div class="text-2xl">Opentronika</div>
 			</a>
 		</div>
-		<div class="flex items-center">
+		<div class="flex w-full justify-center absolute">
 			<a>
-				<div style="font-size:20px">LCD Editor Pro</div>
+				<div class="text-3xl">LCD Editor Pro</div>
 			</a>
 		</div>
-		<div class="flex">
+		<div class="flex z-30">
 			<button class="m-2" id="updateTheme">
 				<i class="pi pi-sun dark:pi-moon"></i>
 			</button>
@@ -31,13 +31,15 @@ import About from "../components/About.astro";
 			</button>
 		</div>
 	</header>
-	<main class=" relative">
+	<main class="relative">
 		<MainApp client:load />
-		<section class=" absolute z-10 top-0 right-0 bottom-0 h-full hidden " id="info">
-			<About/>
+		<section
+			class="fixed z-10 top-0 right-0 bottom-0 hidden h-screen"
+			id="info"
+		>
+			<About />
 		</section>
 	</main>
-	
 </Layout>
 
 <script is:inline>
@@ -59,13 +61,11 @@ import About from "../components/About.astro";
 		.getElementById("updateTheme")
 		.addEventListener("click", handleUpdateTheme);
 
-	document.getElementById("showInfo").addEventListener("click",()=>{
-		console.log(document.getElementById("info").classList.contains("hidden"))
-		if(document.getElementById("info").classList.contains("hidden")){
-			document.getElementById("info").classList.remove("hidden")
+	document.getElementById("showInfo").addEventListener("click", () => {
+		if (document.getElementById("info").classList.contains("hidden")) {
+			document.getElementById("info").classList.remove("hidden");
+		} else {
+			document.getElementById("info").classList.add("hidden");
 		}
-		else{
-			document.getElementById("info").classList.add("hidden")
-		}
-	})
+	});
 </script>
