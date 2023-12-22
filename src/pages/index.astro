@@ -5,6 +5,7 @@ import logo from "../assets/opentronika.png";
 import "primeicons/primeicons.css";
 import MainApp from "../components/MainApp.vue";
 import About from "../components/About.astro";
+import NoScript from "../components/NoScript.astro";
 ---
 
 <Layout title="LCD editor pro.">
@@ -39,6 +40,9 @@ import About from "../components/About.astro";
 		>
 			<About />
 		</section>
+		<noscript class=" fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30">
+			<NoScript/>
+		</noscript>
 	</main>
 </Layout>
 
