@@ -1,7 +1,5 @@
 <template>
   <div id="app" class="dark:bg-gray-900 bg-white min-h-screen my-0">
-    <div class="modal medium no-scroll top"></div>
-    <div class="modal top"></div>
     <div class="MainDiv p-4">
       <CharsTable v-if="showscreentable" @selectCharacter="selectCharacter" />
       <LcdScreen :heightScreen=selected[1] :widthScreen=selected[0] @changeCharacters="updateCode($event)"
@@ -61,7 +59,6 @@ import "material-dynamic-colors";
 import 'highlight.js/styles/a11y-dark.css';
 import getCodeString from '../scripts/getcodestring.js'
 import CharsTable from './charstable.vue'
-import AboutUs from './About.vue'
 import CodeBlock from 'vue3-code-block'
 export default {
   name: 'MainApp',
@@ -87,7 +84,6 @@ export default {
   components: {
     CharsTable,
     LcdScreen,
-    AboutUs,
     CodeBlock
   },
   methods: {
@@ -160,14 +156,5 @@ export default {
   align-content: center;
   display: flex;
   justify-content: center;
-}
-
-.AboutImage {
-  height: 120rem;
-  width: 120rem;
-}
-
-.AboutItem {
-  padding: 10pt;
 }
 </style>

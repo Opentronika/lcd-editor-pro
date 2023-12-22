@@ -3,13 +3,13 @@ import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import logo from "../assets/opentronika.png";
 import "primeicons/primeicons.css";
-import HelloWorld from "../components/HelloWorld.vue";
 import MainApp from "../components/MainApp.vue";
+import About from "../components/About.astro";
 ---
 
 <Layout title="LCD editor pro.">
 	<header
-		class="py-3 flex bg-slate-200 justify-between items-center h-14 sticky w-full top-0 z-10 dark:bg-slate-800 dark:text-white"
+		class="py-3 flex bg-slate-200 justify-between items-center h-14 sticky w-full top-0 z-20 dark:bg-slate-800 dark:text-white"
 	>
 		<div>
 			<a href="https://opentronika.org/" class="flex">
@@ -26,14 +26,18 @@ import MainApp from "../components/MainApp.vue";
 			<button class="m-2" id="updateTheme">
 				<i class="pi pi-sun dark:pi-moon"></i>
 			</button>
-			<button class="m-2" @click="showInfo()">
+			<button class="m-2" id="showInfo">
 				<i class="pi pi-info-circle"></i>
 			</button>
 		</div>
 	</header>
-	<main>
+	<main class=" relative">
 		<MainApp client:load />
+		<section class=" absolute z-10 top-0 right-0 bottom-0 h-full hidden " id="info">
+			<About/>
+		</section>
 	</main>
+	
 </Layout>
 
 <script is:inline>
@@ -54,4 +58,14 @@ import MainApp from "../components/MainApp.vue";
 	document
 		.getElementById("updateTheme")
 		.addEventListener("click", handleUpdateTheme);
+
+	document.getElementById("showInfo").addEventListener("click",()=>{
+		console.log(document.getElementById("info").classList.contains("hidden"))
+		if(document.getElementById("info").classList.contains("hidden")){
+			document.getElementById("info").classList.remove("hidden")
+		}
+		else{
+			document.getElementById("info").classList.add("hidden")
+		}
+	})
 </script>
