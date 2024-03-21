@@ -1,37 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import logo from "../assets/opentronika.png";
 import "primeicons/primeicons.css";
+import Header from "../opentronika_tools/Header.astro"
 import MainApp from "../components/MainApp.vue";
-import About from "../components/About.astro";
-import NoScript from "../components/NoScript.astro";
+import About from "../opentronika_tools/About.astro";
+import NoScript from "../opentronika_tools/NoScript.astro";
 ---
 
 <Layout title="LCD editor pro.">
-	<header
-		class="py-3 flex justify-between bg-slate-200 h-14 sticky w-full top-0 z-20 dark:bg-slate-800 dark:text-white"
-	>
-		<div class="w-auto z-30">
-			<a href="https://opentronika.org/" class="flex ">
-				<Image src={logo} alt="logo" class="h-10 w-auto mx-3" />
-				<div class="text-2xl">Opentronika</div>
-			</a>
-		</div>
-		<div class="flex w-full justify-center absolute">
-			<a>
-				<div class="text-3xl">LCD Editor Pro</div>
-			</a>
-		</div>
-		<div class="flex z-30">
-			<button class="m-2" id="updateTheme">
-				<i class="pi pi-sun dark:pi-moon"></i>
-			</button>
-			<button class="m-2" id="showInfo">
-				<i class="pi pi-info-circle"></i>
-			</button>
-		</div>
-	</header>
+	<Header/>
 	<main class="relative">
 		<MainApp client:load />
 		<section

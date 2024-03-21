@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+import logo from "./assets/opentronika.png";
+---
+<header
+		class="py-3 flex justify-between bg-slate-200 h-14 sticky w-full top-0 z-20 dark:bg-slate-800 dark:text-white"
+	>
+		<div class="w-auto z-30">
+			<a href="https://opentronika.org/" class="flex ">
+				<Image src={logo} alt="logo" class="h-10 w-auto mx-3" />
+				<div class="text-2xl">Opentronika</div>
+			</a>
+		</div>
+		<div class="flex w-full justify-center absolute">
+			<a>
+				<div class="text-3xl">LCD Editor Pro</div>
+			</a>
+		</div>
+		<div class="flex z-30">
+			<button class="m-2" id="updateTheme">
+				<i class="pi pi-sun dark:pi-moon"></i>
+			</button>
+			<button class="m-2" id="showInfo">
+				<i class="pi pi-info-circle"></i>
+			</button>
+		</div>
+	</header>
