@@ -1,0 +1,3 @@
+[submodule "src/opentronika_tools"]
+	path = src/opentronika_tools
+	url = https://github.com/Opentronika/opentronika_tools.git
