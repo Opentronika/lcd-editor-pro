@@ -1,6 +1,7 @@
 <template>
-  <div class="hello">
+  <div class="hello text-white">
     <h1>{{ msg }}</h1>
+    <h1>{{ message }}</h1>
     
   </div>
 </template>
@@ -8,6 +9,11 @@
 <script>
 export default {
   name: 'HelloWorld',
+  data(){
+    return{
+      message: "hola que hace"
+    }
+  },
   props: {
     msg: String
   }

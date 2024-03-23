@@ -1,4 +1,0 @@
-{
-    "header":"#include <LiquidCrystal.h>\n//Crear el objeto LCD con los números correspondientes (rs, en, d4, d5, d6, d7)\nLiquidCrystal lcd(2,3,4,5,6,7);",
-    "bodyhead":""
-}

@@ -1,0 +1,53 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import "primeicons/primeicons.css";
+import Header from "../opentronika_tools/Header.astro"
+import MainApp from "../components/MainApp.vue";
+import About from "../opentronika_tools/About.astro";
+import NoScript from "../opentronika_tools/NoScript.astro";
+---
+
+<Layout title="LCD editor pro.">
+	<Header/>
+	<main class="relative">
+		<MainApp client:load />
+		<section
+			class="fixed z-10 top-0 right-0 bottom-0 hidden h-screen"
+			id="info"
+		>
+			<About />
+		</section>
+		<noscript class=" fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30">
+			<NoScript/>
+		</noscript>
+	</main>
+</Layout>
+
+<script is:inline>
+	const handleUpdateTheme = () => {
+		if (
+			localStorage.theme === "dark" ||
+			(!("theme" in localStorage) &&
+				window.matchMedia("(prefers-color-scheme: dark)").matches)
+		) {
+			document.documentElement.classList.remove("dark");
+			localStorage.theme = "light";
+		} else {
+			document.documentElement.classList.add("dark");
+			localStorage.theme = "dark";
+		}
+	};
+
+	document
+		.getElementById("updateTheme")
+		.addEventListener("click", handleUpdateTheme);
+
+	document.getElementById("showInfo").addEventListener("click", () => {
+		if (document.getElementById("info").classList.contains("hidden")) {
+			document.getElementById("info").classList.remove("hidden");
+		} else {
+			document.getElementById("info").classList.add("hidden");
+		}
+	});
+</script>
