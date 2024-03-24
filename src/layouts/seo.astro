@@ -1,0 +1,62 @@
+---
+import logo from "../opentronika_tools/assets/opentronika.png";
+
+const seoconfig = {
+    title:'LCD Editor Pro',
+    description:'The most advanced lcd module editor that exist in the web. Code generator for lcd modules used in electronic projects that supports multiple characters, different screen sizes, and all characters stored by default in the most commonly used modules.',
+    url: 'https://opentronika.org/lcd-editor-pro/',
+    keywords: 'LCD editor, LCD generator code, arduino, esp32, tool, online, LCD screen generator',
+    logo: logo,
+    author: 'Lut Garu'
+}
+
+const websiteSchema = `
+    {
+        "@context": "https://schema.org",
+        "@type": ["SoftwareApplication","WebApplication"],
+        "name": "${seoconfig.title}",
+        "description": "${seoconfig.description}",
+        "url": "${seoconfig.url}",
+        "applicationCategory": "UtilitiesApplication",
+        "abstract":"The most advanced lcd module editor that exist in the web",
+        "author":"${seoconfig.author}",
+        "operatingSystem":"all",
+        "image":"https://raw.githubusercontent.com/lutgaru/lcd-editor-pro/master/Screenshot.png",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "ratingCount": "8864"
+        }
+    }
+`
+---
+
+<title>{seoconfig.title}</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="theme-color" content="#1D1A1D" />
+<meta name="description" content={seoconfig.description} />
+<meta name="author" content={seoconfig.author} />
+<meta name="robots" content="index, follow">
+<meta name="keywords" content={seoconfig.keywords} />
+<meta charset="UTF-8" />
+<meta name="generator" content={Astro.generator} />
+<meta property="og:title" content={seoconfig.title} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={seoconfig.url} />
+<meta property="og:image" content={seoconfig.url + seoconfig.logo} />
+<meta property="og:description" content={seoconfig.description} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={seoconfig.title} />
+<meta name="twitter:description" content={seoconfig.description} />
+<meta name="twitter:image:src" content={seoconfig.url + seoconfig.logo} />
+
+<link rel="icon" type="image/svg+xml" href="src/opentronika_tools/assets/opentronika.png" />
+
+<script type="application/ld+json" set:html={websiteSchema} />

@@ -15,6 +15,7 @@
     "@astrojs/vue": "^4.0.3",
     "@unhead/vue": "^1.8.9",
     "astro": "^4.0.4",
+    "astro-robots-txt": "^1.0.0",
     "highlight.js": "^11.9.0",
     "lodash": "^4.17.21",
     "material-dynamic-colors": "^1.1.0",
