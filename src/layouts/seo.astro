@@ -57,6 +57,6 @@ const websiteSchema = `
 <meta name="twitter:description" content={seoconfig.description} />
 <meta name="twitter:image:src" content={seoconfig.url + seoconfig.logo} />
 
-<link rel="icon" type="image/svg+xml" href="src/opentronika_tools/assets/opentronika.png" />
+<link rel="icon" type="image/svg+xml" href={seoconfig.logo.src} />
 
 <script type="application/ld+json" set:html={websiteSchema} />
