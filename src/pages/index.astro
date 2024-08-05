@@ -2,24 +2,29 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import "primeicons/primeicons.css";
-import Header from "../opentronika_tools/Header.astro"
+import Header from "../opentronika_tools/Header.astro";
 import MainApp from "../components/MainApp.vue";
 import About from "../opentronika_tools/About.astro";
 import NoScript from "../opentronika_tools/NoScript.astro";
+import LocalAbout from "../layouts/LocalAbout.astro";
 ---
 
 <Layout>
-	<Header/>
+	<Header title="LCD Editor Pro"/>
 	<main class="relative">
 		<MainApp client:load />
 		<section
 			class="fixed z-10 top-0 right-0 bottom-0 hidden h-screen"
 			id="info"
 		>
-			<About />
+			<About>
+				<LocalAbout/>
+			</About>
 		</section>
-		<noscript class=" fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30">
-			<NoScript/>
+		<noscript
+			class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-30"
+		>
+			<NoScript />
 		</noscript>
 	</main>
 </Layout>
